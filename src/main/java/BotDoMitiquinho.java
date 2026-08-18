@@ -15,7 +15,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 public class BotDoMitiquinho extends ListenerAdapter {
 
     // 👑 COLOQUE O SEU ID DO DISCORD AQUI!
-    private static final String ID_DONO = "SEU_ID_DO_DISCORD_AQUI";
+    private static final String ID_DONO = System.getenv("DONO_ID");
 
     private Map<String, Double> saldos = GerenciadorDados.carregarSaldos("saldos.json");
     private Map<String, String> apostasPendentes = new HashMap<>();
@@ -69,7 +69,7 @@ public class BotDoMitiquinho extends ListenerAdapter {
     );
 
     public static void main(String[] args) {
-        String token = "DISCORD_TOKEN";
+        String token = System.getenv("DISCORD_TOKEN");
 
         JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
